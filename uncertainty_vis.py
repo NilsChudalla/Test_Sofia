@@ -18,7 +18,7 @@ st.radio("Uncertainty style (does not work yet)",
 
 # set data source
 
-DATA_URL = ('https://github.com/NilsChudalla/Test_Sofia/entropy_block.npy')
+DATA_URL = ('https://github.com/NilsChudalla/Test_Sofia/blob/main/entropy_block.npy')
 
 
 response = requests.get(DATA_URL)

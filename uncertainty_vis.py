@@ -25,7 +25,7 @@ DATA_URL = 'https://raw.githubusercontent.com/NilsChudalla/Test_Sofia/main/entro
 # load data into cache
 @st.cache
 def load_data():
-    block = pd.read_csv(DATA_URL, header=None).values.reshape(50,50,50)
+    block = pd.read_csv(DATA_URL).values.reshape(50,50,50)
     #block = np.load(DATA_URL, allow_pickle=True).reshape(50, 50, 50)
     return block
 # info text for loading data

@@ -58,6 +58,8 @@ with st.expander('Profile sliders'):
     WE_profile = st.slider(label='W-E profile',min_value=float(np.min(y_array)),max_value=float(np.max(y_array)), value=float(np.min(y_array)))
     NS_profile = st.slider(label='N-S profile',min_value=float(np.min(x_array)),max_value=float(np.max(x_array)), value=float(np.min(x_array)))
 
+cross_sections = st.checkbox('Toggle relative profile positions')
+
 depth_index = np.argmin(np.abs(z_array-depth))
 WE_index = np.argmin(np.abs(y_array-WE_profile))
 NS_index = np.argmin(np.abs(x_array-NS_profile))
@@ -81,6 +83,10 @@ ax1.axis('equal')
 ax1.set_xlim(np.min(x_array), np.max(x_array))
 ax1.set_ylim(np.min(y_array), np.max(y_array))
 
+if cross_sections:
+    ax1.vlines(NS_profile, ymin=grid_min[1], ymax=grid_max[1], color='white', lw=1)
+    ax1.hlines(WE_profile, xmin=grid_min[0], xmax=grid_max[0], color='white', lw=1)
+
 ax2 = plt.subplot(AX[0,1])
 ax2.set_title('Uncertainty - W - E')
 ax2.contourf(XX_xz, ZZ_xz, WE_slice, cmap='magma', vmin=vmin, vmax=vmax)
@@ -88,12 +94,20 @@ ax2.axis('equal')
 ax2.set_xlim(np.min(x_array), np.max(x_array))
 ax2.set_ylim(np.min(z_array), np.max(z_array))
 
+if cross_sections:
+    ax2.vlines(NS_profile, ymin=grid_min[2], ymax=grid_max[2], color='white', lw=1)
+    ax2.hlines(depth, xmin=grid_min[0], xmax=grid_max[0], color='white', lw=1)
+
 ax3 = plt.subplot(AX[1,0])
 ax3.set_title('Uncertainty - S - N')
 im = ax3.contourf(YY_yz, ZZ_yz, NS_slice, cmap='magma', vmin=vmin, vmax=vmax)
 ax3.axis('equal')
 ax3.set_xlim(np.min(y_array), np.max(y_array))
 ax3.set_ylim(np.min(z_array), np.max(z_array))
+
+if cross_sections:
+    ax3.vlines(WE_profile, ymin=grid_min[2], ymax=grid_max[2], color='white', lw=1)
+    ax3.hlines(depth, xmin=grid_min[1], xmax=grid_max[1], color='white', lw=1)
 
 ax4 = fig.add_axes([0.65, 0.05, 0.05, 0.37])
 x1 = np.array([0.0,1.0])
@@ -103,6 +117,9 @@ ax4.set_title('"Borehole view"')
 ax4.contourf(XX1, ZZ1, vals.T, cmap='magma', vmin=vmin, vmax=vmax)
 ax4.set_xlim(0.1, 0.9)
 ax4.axes.get_xaxis().set_ticks([])
+
+if cross_sections:
+    ax4.hlines(depth, xmin=-1, xmax=2, color='white', lw=1)
 
 ax5 = fig.add_axes([0.8, 0.05, 0.05, 0.36])
 fig.colorbar(im, cax=ax5, orientation='vertical', ticks=np.linspace(vmin, vmax, 4), boundaries=[vmin, vmax], label='entropy')

@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # %%
-block = np.load("entropy_block.npy").reshape(50, 50, 50)
+block = np.load("").reshape(50, 50, 50)
 grid = np.load("solutions_grid.npy", allow_pickle=True).reshape(1,)[0].values
 grid_df = pd.DataFrame(grid, columns=['x', 'y', 'z'])
 

@@ -19,7 +19,7 @@ st.radio("Uncertainty style (does not work yet)",
 
 # set data source
 
-DATA_URL = 'https://raw.githubusercontent.com/NilsChudalla/Test_Sofia/main/entropy_block.txt'
+DATA_URL = 'https://raw.githubusercontent.com/NilsChudalla/Test_Sofia/main/entropy_block.csv'
 
 
 # load data into cache

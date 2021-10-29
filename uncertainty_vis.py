@@ -18,7 +18,7 @@ st.radio("Uncertainty style (does not work yet)",
 
 # set data source
 
-DATA_URL = ('https://github.com/NilsChudalla/Test_Sofia/entropy_block.npy')
+DATA_URL = ('https://github.com/NilsChudalla/Test_Sofia/blob/main/entropy_block.txt')
 
 
 response = requests.get(DATA_URL)
@@ -113,14 +113,3 @@ fig.colorbar(im, cax=ax5, orientation='vertical', ticks=np.linspace(vmin, vmax, 
 
 st.pyplot(fig)
 
-
-
-#
-# # Add slider
-# # Some number in the range 0-23
-# hour_to_filter = st.slider('hour', 0, 23, 17)
-# filtered_data = data[data[DATE_COLUMN].dt.hour == hour_to_filter]
-#
-# # Create subsection
-# st.subheader('Map of all pickups at %s:00' % hour_to_filter)
-# st.map(filtered_data)

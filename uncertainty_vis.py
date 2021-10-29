@@ -21,15 +21,10 @@ st.radio("Uncertainty style (does not work yet)",
 DATA_URL = ('https://github.com/NilsChudalla/Test_Sofia/blob/main/entropy_block.txt')
 
 
-
-response = requests.get(DATA_URL)
-response.raise_for_status()
-
-
 # load data into cache
 @st.cache
 def load_data():
-    block = np.load(io.BytesIO(response.content), allow_pickle=True).reshape(50,50,50)
+    block = np.loadtxt(DATA_URL).reshape(50,50,50)
     #block = np.load(DATA_URL, allow_pickle=True).reshape(50, 50, 50)
     return block
 # info text for loading data

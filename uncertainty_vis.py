@@ -1,3 +1,4 @@
+import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
@@ -18,13 +19,13 @@ st.radio("Uncertainty style (does not work yet)",
 
 # set data source
 
-DATA_URL = ('https://github.com/NilsChudalla/Test_Sofia/blob/main/entropy_block.txt')
+DATA_URL = ('https://github.com/NilsChudalla/Test_Sofia/blob/main/entropy_block.csv')
 
 
 # load data into cache
 @st.cache
 def load_data():
-    block = np.loadtxt(DATA_URL).reshape(50,50,50)
+    block = pd.read_csv(DATA_URL).values.reshape(50,50,50)
     #block = np.load(DATA_URL, allow_pickle=True).reshape(50, 50, 50)
     return block
 # info text for loading data

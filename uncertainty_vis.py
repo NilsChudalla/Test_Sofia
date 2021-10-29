@@ -21,6 +21,7 @@ st.radio("Uncertainty style (does not work yet)",
 DATA_URL = ('https://github.com/NilsChudalla/Test_Sofia/blob/main/entropy_block.txt')
 
 
+
 response = requests.get(DATA_URL)
 response.raise_for_status()
 
@@ -112,4 +113,5 @@ fig.colorbar(im, cax=ax5, orientation='vertical', ticks=np.linspace(vmin, vmax, 
 
 
 st.pyplot(fig)
+
 

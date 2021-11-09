@@ -1,0 +1,7 @@
+Data Type;Coordinate;Std. dev.;Distribution Type;Source
+Surface Interface points; Height (z);± 0.5 m;Normal;DEM
+Surface Interface points; Position (x,y);± 150 m;Uniform;Geological maps
+Subsurface interface points (interpreted seismics); Depth (z);± 100 m;Normal;Seismic
+Subsurface interface points (interpreted seismics); Position (x,y);± 10 m;Normal;Seismic
+Borehole interface points; Depth (z);± 5 m; Normal;Estimate
+Borehole interface points; Position (x,y);± 10 m; Normal;Estimate

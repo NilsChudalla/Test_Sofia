@@ -2,6 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
+
+# %%
+
+df = pd.read_csv('clone/Uncertainty_table.csv', delimiter=";")
+print(df)
+
 # %%
 block = np.load("").reshape(50, 50, 50)
 grid = np.load("solutions_grid.npy", allow_pickle=True).reshape(1,)[0].values
@@ -30,3 +36,4 @@ plt.contourf(XX, YY, hslice_coords, cmap='magma')
 plt.axis('equal')
 plt.show()
 #%%
+

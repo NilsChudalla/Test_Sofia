@@ -3,10 +3,6 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import numpy as np
-import requests
-import io
-
-
 
 logo_URL = 'https://raw.githubusercontent.com/NilsChudalla/Test_Sofia/main/CGRE_logo.svg'
 logo_URL2 = 'https://raw.githubusercontent.com/NilsChudalla/Test_Sofia/main/PLUS_logo.png'

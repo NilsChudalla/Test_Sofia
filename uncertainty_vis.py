@@ -9,6 +9,7 @@ import io
 
 
 logo_URL = 'https://raw.githubusercontent.com/NilsChudalla/Test_Sofia/main/CGRE_logo.svg'
+logo_URL2 = 'https://raw.githubusercontent.com/NilsChudalla/Test_Sofia/main/PLUS_logo.svg'
 ent_URL = 'https://raw.githubusercontent.com/NilsChudalla/Test_Sofia/main/entropy_block.csv'
 prob_URL = 'https://raw.githubusercontent.com/NilsChudalla/Test_Sofia/main/prob_block2.csv'
 uncert_URL = 'https://raw.githubusercontent.com/NilsChudalla/Test_Sofia/main/Uncertainty_table.csv'
@@ -23,6 +24,7 @@ lith_dict= {"Upper Freshwater Molasse": 0,
 
 head1, head2, head3= st.columns(3)
 head1.image(logo_URL, use_column_width=True)
+head3.image(logo_URL2, use_column_width=True)
 
 # set title
 #st.set_page_config(layout="wide")
@@ -91,8 +93,7 @@ NS_profile = st.sidebar.slider(label='Profile slider (N-S)', min_value=float(np.
                        value=float(np.mean(x_array)))
 NS_index = np.argmin(np.abs(x_array - NS_profile))
 cross_sections = st.sidebar.checkbox('Toggle relative profile positions')
-super_elevation = st.sidebar.slider(label='Superelevation factor', min_value=1, max_value=4, value=2)
-
+super_elevation = st.sidebar.slider(label='Vertical exaggeration', min_value=1, max_value=4, value=2)
 
 
 if data_type == 'Probability':
@@ -112,6 +113,23 @@ elif data_type == 'Entropy':
     curr_cmap = 'magma'
     vmin = 0.0
     vmax = 1.0
+
+fig0=plt.figure(figsize=(6,0.7))
+fig0.patch.set_facecolor("#8EBAE5")
+
+vals = np.linspace(0,1)
+
+vals = np.vstack((vals, vals))
+plt.imshow(vals, cmap=curr_cmap, extent=[0, 1, 0, 0.15])
+if data_type == "Entropy":
+    plt.xlabel('Shannon cell Entropy')
+
+else:
+    plt.xlabel('Probability')
+ax = plt.gca()
+ax.axes.get_yaxis().set_ticks([])
+st.sidebar.pyplot(fig0)
+
 
 st.subheader(title)
 

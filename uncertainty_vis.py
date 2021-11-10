@@ -82,10 +82,10 @@ NS_profile = float(np.mean(x_array))
 depth = st.sidebar.slider(label='Depth slider', min_value=float(np.min(z_array)), max_value=float(np.max(z_array)),
                       value=float(np.mean(z_array)))
 depth_index = np.argmin(np.abs(z_array - depth))
-WE_profile = st.sidebar.slider(label='Profile slider (W-E)', min_value=float(np.min(y_array)), max_value=float(np.max(y_array)),
+WE_profile = st.sidebar.slider(label='Profile slider (N-S)', min_value=float(np.min(y_array)), max_value=float(np.max(y_array)),
                        value=float(np.mean(y_array)))
 WE_index = np.argmin(np.abs(y_array - WE_profile))
-NS_profile = st.sidebar.slider(label='Profile slider (N-S)', min_value=float(np.min(x_array)), max_value=float(np.max(x_array)),
+NS_profile = st.sidebar.slider(label='Profile slider (W-E)', min_value=float(np.min(x_array)), max_value=float(np.max(x_array)),
                        value=float(np.mean(x_array)))
 NS_index = np.argmin(np.abs(x_array - NS_profile))
 cross_sections = st.sidebar.checkbox('Toggle relative profile positions')

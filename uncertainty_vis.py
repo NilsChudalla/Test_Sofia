@@ -9,7 +9,7 @@ import io
 
 
 logo_URL = 'https://raw.githubusercontent.com/NilsChudalla/Test_Sofia/main/CGRE_logo.svg'
-logo_URL2 = 'https://raw.githubusercontent.com/NilsChudalla/Test_Sofia/main/PLUS_logo.svg'
+logo_URL2 = 'https://raw.githubusercontent.com/NilsChudalla/Test_Sofia/main/PLUS_logo.png'
 ent_URL = 'https://raw.githubusercontent.com/NilsChudalla/Test_Sofia/main/entropy_block.csv'
 prob_URL = 'https://raw.githubusercontent.com/NilsChudalla/Test_Sofia/main/prob_block2.csv'
 uncert_URL = 'https://raw.githubusercontent.com/NilsChudalla/Test_Sofia/main/Uncertainty_table.csv'
